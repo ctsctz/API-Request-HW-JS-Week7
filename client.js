@@ -33,12 +33,12 @@ function RenderMembersList(name, url) {
     ul.appendChild(li);
 }
 fetchAPI(HYFReposApiEndPoint, function cb(repositoriesList) {
-    let list = repositoriesList.reduce((prev, current) => {
-        RenderRepoList(current.name, current.url);
+    let list = repositoriesList.forEach(function)(element) {
+        RenderRepoList(element.name, element.url);
     }, '');
 });
 fetchAPI(HYFMembersApiEndPoint, (membersList) => {
-    let list = membersList.reduce((prev, current) => {
-        RenderMembersList(current.login, current.avatar_url);
+let list = membersList.reduce((prev, current) => {
+		RenderMembersList(current.login, current.avatar_url);
     }, '');
 });
